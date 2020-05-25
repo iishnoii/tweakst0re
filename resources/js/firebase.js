@@ -1,9 +1,6 @@
 // listenForAuthStatus
 // getData
 auth.onAuthStateChanged(user => {
-  db.collection('tweaks').onSnapshot(snapshot => {
-    setupTweakList(snapshot.docs);
-  });
   if (user) {
     setupUI(user);
   } else {
@@ -11,7 +8,9 @@ auth.onAuthStateChanged(user => {
     setupUI();
   }
 })
-
+db.collection('tweaks').onSnapshot(snapshot => {
+  setupTweakList(snapshot.docs);
+});
 // New Tweak Form
 const newTweakForm = document.querySelector('#newTweak-form');
 newTweakForm.addEventListener('submit', (e) => {
