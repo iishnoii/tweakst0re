@@ -48,10 +48,10 @@ const setupTweakList = (data) => {
         <li>
         <div class="card-panel">
               <div class="row center-align">
-                  <h6 class="col s6"><span class="underline">Tweak</span> <br />${tweak.title}</h6>
-                  <h6 class="col s6"><span class="underline">Description</span> <br />${tweak.content}</h6>
-                  <h6 class="col s6"><span class="underline">Repo</span> <br />${tweak.repo}</h6>
-                  <h6 class="col s6"><span class="underline">IOS Version</span> <br />${tweak.iosVersion}</h6>
+                  <h6 class="col s12"><span class="underline">Tweak</span> <br />${tweak.title}</h6>
+                  <h6 class="col s12"><span class="underline">Description</span> <br />${tweak.content}</h6>
+                  <h6 class="col s12"><span class="underline">Repo</span> <br />${tweak.repo}</h6>
+                  <h6 class="col s12"><span class="underline">IOS Version</span> <br />${tweak.iosVersion}</h6>
                   <h6 class="col s12"><span class="underline">Author</span> <br />${tweak.author}</h6>
               </div>
           </div>
