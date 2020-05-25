@@ -44,10 +44,9 @@ const setupTweakList = (data) => {
     let html = '';
     data.forEach(doc => {
       const tweak = doc.data();
-      const li = `
-        <li>
-        <div class="card-panel">
-              <div class="row center-align">
+      const li = `<li>
+        <div class="card-panel indigo accent-2 z-depth-5">
+              <div class="row center-align ">
                   <h6 class="col s12"><span class="underline">Tweak</span> <br />${tweak.title}</h6>
                   <h6 class="col s12"><span class="underline">Description</span> <br />${tweak.content}</h6>
                   <h6 class="col s12"><span class="underline">Repo</span> <br />${tweak.repo}</h6>
