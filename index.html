@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TweakSt0re</title>
+
+    <!-- MaterializeCSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="/resources/css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading center-align">
+        <h1>Welcome to TweakSt0re!</h1>
+      </div>
+      <!-- makeNavBar -->
+      <nav class="z-depth-0 teal lighten-2">
+        <div class="nav-wrapper">
+          <ul id="nav-mobile">
+            <!-- makeAccountButton + show if(loggedIn) -->
+            <li class="logged-in" style="display:none;">
+              <a href="#" class="white-text modal-trigger" data-target="modal-account">Account</a>
+            </li>
+            <!-- makeLogoutButton + show if(loggedIn) -->
+            <li class="logged-in" style="display:none;">
+              <a href="#" class="white-text" id="logout">Logout</a>
+            </li>
+            <!-- makeNewPostButton + show if(loggedIn) -->
+            <li class="logged-in" style="display:none;">
+              <a href="#" class="white-text modal-trigger" data-target="modal-newTweak">Add New Tweak</a>
+            </li>
+            <!-- makeLoginButton + show if(loggedOut) -->
+            <li class="logged-out" style="display:none;">
+              <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
+            </li>
+            <!-- makeSigninButton + show if(loggedOut) -->
+            <li class="logged-out" style="display:none;">
+              <a href="#" class="white-text modal-trigger" data-target="modal-signup">Signup</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Make Modal's from nav -->
+      <!-- signupModal -->
+      <div id="modal-signup" class="modal">
+        <div class="modal-content">
+          <h4>Sign up</h4><br />
+          <form id="signup-form">
+            <div class="input-field">
+              <input type="email" id="signup-email" required />
+              <label for="signup-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="signup-password" required />
+              <label for="signup-password">Choose password</label>
+            </div>
+            <button class="btn teal lighten-2 z-depth-0">Sign up</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- loginModal -->
+      <div id="modal-login" class="modal">
+        <div class="modal-content">
+          <h4>Login</h4><br />
+          <form id="login-form">
+            <div class="input-field">
+              <input type="email" id="login-email" required />
+              <label for="login-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="login-password" required />
+              <label for="login-password">Your password</label>
+            </div>
+            <button class="btn teal lighten-2 z-depth-0">Login</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- accountModal -->
+      <div id="modal-account" class="modal">
+        <div class="modal-content center-align">
+          <h4>Account details</h4><br />
+          <div class="account-details"></div>
+        </div>
+      </div>
+
+      <!-- addNewTweakForm -->
+      <div id="modal-newTweak" class="modal">
+        <div class="modal-content">
+          <h4>Add New Tweak Form</h4><br />
+          <form id="newTweak-form">
+            <div class="input-field">
+              <input type="text" id="title" placeholder="SeeThroughDock" required>
+              <label for="title">Tweak Title</label>
+            </div>
+            <div class="input-field">
+              <textarea id="content" class="materialize-textarea" placeholder="This tweak makes the dock transparent!" required></textarea>
+              <label for="content">Tweak Description</label>
+            </div>
+            <div class="input-field">
+              <input type="url" id="repo" placeholder="https://example.com" required>
+              <label for="repo">Tweak Repo</label>
+            </div>
+            <div class="input-field">
+              <input type="text" id="iosVersion" placeholder="12.4, 13.3, 13.5" required>
+              <label for="iosVersion">Minimum IOS Version (List Others Tested)</label>
+            </div>
+            <div class="g-recaptha">
+
+            </div>
+            <button class="btn teal lighten-2 z-depth-0">Add Tweak</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- create tweakList container -->
+      <div>
+        <ul class="tweaks">
+
+        </ul>
+      </div>
+      <footer class="page-footer teal lighten-2">
+        <div class="row">
+          <div class="col l6 m6 s12">
+            <h5 class="white-text">About Us</h5>
+            <p class="grey-text text-lighten-4">TweakSt0re | Developed By: IIShNoII</p>
+          </div>
+        </div>
+      <div class="footer-copyright teal lighten-2">
+            <div class="col l6 m6 s12">&copy; 2020 Copyright <a class="white-text text-lighten-4" href="tweakst0re.github.io" target="_blank">TweakSt0re</a></div>
+      </div>
+    </footer>
+
+    </div>
+    <!-- Link Firebase SDK -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyASrbBmWOLnuBZ811jDQ9M7ZCM3NCk98kk",
+        authDomain: "tweakst0re.firebaseapp.com",
+        databaseURL: "https://tweakst0re.firebaseio.com",
+        projectId: "tweakst0re",
+        storageBucket: "tweakst0re.appspot.com",
+        messagingSenderId: "274196328749",
+        appId: "1:274196328749:web:964a791dd6c08fc74223a4",
+        measurementId: "G-GC0MPE1ZGY"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      // Make Auth Store References
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Add index and auth javascript files -->
+    <script src="resources/js/index.js" charset="utf-8"></script>
+    <script src="resources/js/firebase.js" charset="utf-8"></script>
+  </body>
+</html>
