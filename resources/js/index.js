@@ -19,7 +19,7 @@ const setupUI = (user) => {
   if (user) {
     // Set Author Details inside Form!
     const authorD = `
-    <input type="text" id="author" class="author-details" placeholder="This Submission Created by:" value="${user.email}" >
+    <input type="text" id="author" class="author-details" placeholder="This Submission Created by:" value="${user.email}">
     `;
     authorDetails.innerHTML = authorD;
 
