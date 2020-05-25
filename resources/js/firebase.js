@@ -20,14 +20,15 @@ newTweakForm.addEventListener('submit', (e) => {
     title: newTweakForm['title'].value,
     content: newTweakForm['content'].value,
     repo: newTweakForm['repo'].value,
-    iosVersion: newTweakForm['iosVersion'].value
+    iosVersion: newTweakForm['iosVersion'].value,
+    author: newTweakForm['author'].value,
   }).then(() => {
     //Close and reset
     const modal = document.querySelector('#modal-newTweak');
     M.Modal.getInstance(modal).close();
     newTweakForm.reset();
   }).catch(err => {
-    console.log(err.message);
+
   })
 })
 
@@ -66,7 +67,7 @@ signupForm.addEventListener('submit', (e) => {
     const password = loginForm['login-password'].value;
 
     auth.signInWithEmailAndPassword(email, password).then(cred => {
-      console.log(cred.user)
+
       //Close Login Modal
       const modal = document.querySelector('#modal-login');
       M.Modal.getInstance(modal).close();

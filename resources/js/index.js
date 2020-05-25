@@ -13,14 +13,21 @@ const TweakList = document.querySelector('.tweaks');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 const accountDetails = document.querySelector('.account-details');
+const authorDetails = document.querySelector('.author-details');
 
 const setupUI = (user) => {
   if (user) {
-    //Account details
-    const html = `
-    <div>Logged In with email: ${user.email}.
+    // Set Author Details inside Form!
+    const authorD = `
+    <input type="text" id="author" class="author-details" placeholder="This Submission Created by:" value="${user.email}" >
     `;
-    accountDetails.innerHTML = html;
+    authorDetails.innerHTML = authorD;
+
+    // Show User Email
+    const accountD = `
+    <div>Email: ${user.email} </div>
+    `;
+    accountDetails.innerHTML = accountD;
 
     // toggle user UI elements
     loggedInLinks.forEach(item => item.style.display = 'block');
@@ -45,6 +52,7 @@ const setupTweakList = (data) => {
                   <h6 class="col s6"><span class="underline">Description</span> <br />${tweak.content}</h6>
                   <h6 class="col s6"><span class="underline">Repo</span> <br />${tweak.repo}</h6>
                   <h6 class="col s6"><span class="underline">IOS Version</span> <br />${tweak.iosVersion}</h6>
+                  <h6 class="col s12"><span class="underline">Author</span> <br />${tweak.author}</h6>
               </div>
           </div>
         </li>

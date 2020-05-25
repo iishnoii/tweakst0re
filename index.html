@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html Set-Cookie: flavor=choco; SameSite=None; Secure>
 <html lang="en" dir="ltr">
   <head>
+
     <meta charset="utf-8">
     <title>TweakSt0re</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Flavicon -->
     <link rel="icon" type="image/icon" href="/flavicon.ico">
@@ -10,7 +13,11 @@
     <!-- MaterializeCSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <link rel="stylesheet" type="text/css" href="https://github.com/iishnoii/tweakst0re/blob/master/resources/css/main.css">
+    <style>
+    .underline {
+      text-decoration: underline;
+    }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -112,8 +119,8 @@
               <input type="text" id="iosVersion" placeholder="12.4, 13.3, 13.5" required>
               <label for="iosVersion">Minimum IOS Version (List Others Tested)</label>
             </div>
-            <div class="g-recaptha">
-
+            <div class="input-field col s12 author-details" >
+              <label for="author">Author</label> <br>
             </div>
             <button class="btn teal lighten-2 z-depth-0">Add Tweak</button>
           </form>
@@ -176,5 +183,9 @@
     <!-- Add index and auth javascript files -->
     <script src="resources/js/index.js" charset="utf-8"></script>
     <script src="resources/js/firebase.js" charset="utf-8"></script>
+
+    <script>
+    document.cookie = "bestDinosaur=Velociraptor;SameSite=Strict;path=/";
+    </script>
   </body>
 </html>
