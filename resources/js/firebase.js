@@ -4,13 +4,13 @@ auth.onAuthStateChanged(user => {
   if (user) {
     setupUI(user);
   } else {
-    setupTweakList([]);
+    db.collection('tweaks').onSnapshot(snapshot => {
+      setupTweakList(snapshot.docs);
+    });
     setupUI();
   }
 })
-db.collection('tweaks').onSnapshot(snapshot => {
-  setupTweakList(snapshot.docs);
-});
+
 // New Tweak Form
 const newTweakForm = document.querySelector('#newTweak-form');
 newTweakForm.addEventListener('submit', (e) => {

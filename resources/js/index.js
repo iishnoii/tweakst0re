@@ -33,7 +33,6 @@ const setupUI = (user) => {
 }
 
 const setupTweakList = (data) => {
-
   if (data.length) {
     let html = '';
     data.forEach(doc => {
