@@ -38,7 +38,7 @@
       <!-- makeNavBar -->
       <nav class="indigo accent-2 nav-extended">
         <div class="nav-wrapper">
-          <a class="brand-logo left" href="#" style="padding-left: 2%;">TweakSt0re</a>
+          <a class="brand-logo left hide-on-small-only" href="#" style="padding-left: 2%;">TweakSt0re</a>
           <ul id="nav-mobile" class="right">
             <!-- makeAccountButton + show if(loggedIn) -->
             <li class="logged-in" style="display:none;">
@@ -59,6 +59,10 @@
             <!-- makeSigninButton + show if(loggedOut) -->
             <li class="logged-out" style="display:none;">
               <a href="#" class="white-text modal-trigger" data-target="modal-signup">Signup</a>
+            </li>
+            <!-- makeResetPasswordButton + show if(loggedOut) -->
+            <li class="logged-out" style="display:none;">
+              <a href="#" class="white-text modal-trigger" data-target="resetPasswordModal">Reset Password</a>
             </li>
           </ul>
         </div>
@@ -110,6 +114,20 @@
           <h4>Account details</h4><br />
           <div class="account-details"></div>
         </div>
+      </div>
+
+      <!-- resetPasswordModal -->
+      <div id="resetPasswordModal" class="modal indigo accent-2">
+        <form id="resetPasswordForm" method="submit">
+          <div class="modal-content center-align">
+            <h4>Reset Password</h4><br />
+            <div class="input-field">
+              <input type="email" id="userEmail4Reset" required />
+              <label for="userEmail4Reset">Email address</label>
+            </div>
+            <button class="btn indigo accent-2 z-depth-0">Reset Password</button>
+          </div>
+        </form>
       </div>
 
       <!-- addNewTweakForm -->

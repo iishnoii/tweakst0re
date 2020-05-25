@@ -50,6 +50,23 @@ signupForm.addEventListener('submit', (e) => {
     });
   });
 
+  // loginUsers
+  const resetPasswordForm = document.querySelector('#resetPasswordForm');
+  resetPasswordForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // getUserInput
+    const resetPassword = resetPasswordForm['userEmail4Reset'].value;
+
+    auth.sendPasswordResetEmail(resetPassword).then(() => {
+
+      //Close Reset Form Modal
+      const modal = document.querySelector('#resetPasswordModal');
+      M.Modal.getInstance(modal).close();
+      resetPasswordForm.reset();
+    });
+  })
+
   // logoutUsers
   const logout = document.querySelector('#logout');
   logout.addEventListener('click', (e) => {
