@@ -1,0 +1,21 @@
+.underline {
+  text-decoration: underline;
+}
+.fivePercentPadding {
+  padding: 5%;
+}
+.makeDisplayNone {
+  display: none;
+}
+.makeDisplayBlock {
+  display: block;
+}
+.card-panel{
+  min-width: 300px;
+}
+.onePercentPadding {
+  padding: 1%;
+}
+.twoPercentLeftMargin {
+  margin-left: 2%;
+}

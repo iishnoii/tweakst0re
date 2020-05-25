@@ -21,52 +21,46 @@
 
     <!-- MaterializeCSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style>
-    body {
-      overflow: scroll;
-    }
-    .underline {
-      text-decoration: underline;
-    }
-    ul {
-      background-color: none;
-    }
-    </style>
+
+    <link rel="stylesheet" href="/main.css">
   </head>
   <body class="teal white-text">
-    <div style="padding: 5%;">
+    <div class="fivePercentPadding">
+      <div class="center hide-on-med-and-up">
+        <h1>TweakSt0re</h1>
+      </div>
       <!-- makeNavBar -->
       <nav class="indigo accent-2 nav-extended">
         <div class="nav-wrapper">
-          <a class="brand-logo left hide-on-small-only" href="#" style="padding-left: 2%;">TweakSt0re</a>
+          <a class="brand-logo left hide-on-small-only onePercentPadding" href="#">TweakSt0re</a>
           <ul id="nav-mobile" class="right">
             <!-- makeAccountButton + show if(loggedIn) -->
-            <li class="logged-in" style="display:none;">
+            <li class="logged-in makeDisplayNone">
               <a href="#" class="white-text modal-trigger" data-target="modal-account">Account</a>
             </li>
             <!-- makeLogoutButton + show if(loggedIn) -->
-            <li class="logged-in" style="display:none;">
+            <li class="logged-in makeDisplayNone">
               <a href="#" class="white-text" id="logout">Logout</a>
             </li>
             <!-- makeNewPostButton + show if(loggedIn) -->
-            <li class="logged-in" style="display:none;">
+            <li class="logged-in makeDisplayNone">
               <a href="#" class="white-text modal-trigger" data-target="modal-newTweak">Add New Tweak</a>
             </li>
             <!-- makeLoginButton + show if(loggedOut) -->
-            <li class="logged-out" style="display:none;">
+            <li class="logged-out makeDisplayNone">
               <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
             </li>
             <!-- makeSigninButton + show if(loggedOut) -->
-            <li class="logged-out" style="display:none;">
+            <li class="logged-out makeDisplayNone">
               <a href="#" class="white-text modal-trigger" data-target="modal-signup">Signup</a>
             </li>
             <!-- makeResetPasswordButton + show if(loggedOut) -->
-            <li class="logged-out" style="display:none;">
+            <li class="logged-out makeDisplayNone">
               <a href="#" class="white-text modal-trigger" data-target="resetPasswordModal">Reset Password</a>
             </li>
           </ul>
         </div>
-        <div class="nav-content center" id="importantPanel" style="padding-bottom: 2%;">
+        <div class="nav-content center onePercentPadding" id="importantPanel"">
           <p>Please Contant sshblur@gmail.com for any removals/edits</p>
         </div>
       </nav>
@@ -165,7 +159,7 @@
 
         </ul>
       </div>
-      <footer class="page-footer indigo accent-2">
+      <footer class="page-footer indigo accent-2 onePercentPadding">
         <div class="row">
           <div class="col l6 m6 s12">
             <h5 class="white-text">About Us</h5>
@@ -173,7 +167,7 @@
           </div>
         </div>
       <div class="footer-copyright indigo accent-2">
-            <div class="col l6 m6 s12" style="padding-left:1%;">&copy; 2020 Copyright <a class="white-text" href="#" target="_blank">TweakSt0re</a></div>
+            <div class="col l6 m6 s12">&copy; 2020 Copyright <a class="white-text" href="#" target="_blank">TweakSt0re</a></div>
       </div>
     </footer>
 

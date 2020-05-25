@@ -47,11 +47,11 @@ const setupTweakList = (data) => {
       const li = `<li>
         <div class="card-panel indigo accent-2">
               <div class="row center-align">
-                  <h6 class="col s12"><span class="underline">Tweak</span> <br />${tweak.title}</h6>
-                  <h6 class="col s12"><span class="underline">Description</span> <br />${tweak.content}</h6>
-                  <h6 class="col s12"><span class="underline">Repo</span> <br />${tweak.repo}</h6>
-                  <h6 class="col s12"><span class="underline">IOS Version</span> <br />${tweak.iosVersion}</h6>
-                  <h6 class="col s12"><span class="underline">Author</span> <br />${tweak.author}</h6>
+                  <h6 class="col s12"><span class="underline">Tweak</span> <br /> ${tweak.title}</h6>
+                  <h6 class="col s12"><span class="underline">Description</span> <br /> ${tweak.content}</h6>
+                  <h8 class="col s12"><span class="underline">Repo</span> <br /></h8> ${tweak.repo}
+                  <h6 class="col s12"><span class="underline">IOS Version</span> <br /> ${tweak.iosVersion}</h6>
+                  <h6 class="col s12"><span class="underline">Author</span> <br /> ${tweak.author}</h6>
               </div>
           </div>
         </li>
