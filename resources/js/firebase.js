@@ -78,5 +78,6 @@ document.querySelector('.semail').addEventListener('click', (e) => {
   auth.sendSignInLinkToEmail(email, actionCodeSettings).then(function() {
     window.localStorage.setItem('emailForSignin', email);
     alert('Check your email!');
+    passwordLessAuth.reset();
   })
 })
