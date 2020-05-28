@@ -32,62 +32,48 @@ newTweakForm.addEventListener('submit', (e) => {
   })
 })
 
-// signupForm
-const signupForm = document.querySelector('#signup-form');
-signupForm.addEventListener('submit', (e) => {
+// logoutUsers
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
   e.preventDefault();
+  auth.signOut();
+});
 
-  // getUserInput
-  const email = signupForm['signup-email'].value;
-  const password = signupForm['signup-password'].value;
+// passwordlessSignin
+// set actionCodeSettings
+const passwordLessAuth = document.querySelector('#passwordLessAuthForm');
 
-  // signupUsers
-  auth.createUserWithEmailAndPassword(email, password).then(cred => {
-    const modal = document.querySelector('#modal-signup');
+var actionCodeSettings = {
+  // URL you want to redirect back to. The domain for this URL
+  // must be whitelisted in the Firebase Console.
+  'url': window.location.href, // Here we redirect back to this same page.
+  'handleCodeInApp': true // This must be true.
+};
 
-    M.Modal.getInstance(modal).close();
-    signupForm.reset();
-    });
-  });
+// sendEmailVerification
+document.querySelector('.semail').addEventListener('click', (e) => {
 
-  // resetPassword
-  const resetPasswordForm = document.querySelector('#resetPasswordForm');
-  resetPasswordForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  const email = passwordLessAuth['PWLAemail'].value;
 
-    // getUserInput
-    const resetPassword = resetPasswordForm['userEmail4Reset'].value;
-
-    auth.sendPasswordResetEmail(resetPassword).then(() => {
-
-      //Close Reset Form Modal
-      const modal = document.querySelector('#resetPasswordModal');
-      M.Modal.getInstance(modal).close();
-      resetPasswordForm.reset();
-    });
+  auth.sendSignInLinkToEmail(email, actionCodeSettings).then(function() {
+    window.localStorage.setItem('emailForSignin', email);
+    alert('Check your email!');
   })
+})
 
-  // logoutUsers
-  const logout = document.querySelector('#logout');
-  logout.addEventListener('click', (e) => {
-    e.preventDefault();
-    auth.signOut();
-  });
+//Verify Email!
+function handleSignIn() {
+  if (auth.isSignInWithEmailLink(window.location.href)) {
+    var email = window.localStorage.getItem('emailForSignin');
+    if (!email) {
+      email = window.prompt('Please verify your email address.');
+    }
+    if (email) {
+      auth.signInWithEmailLink(email, window.location.href).then(cred => {
 
-  // loginUsers
-  const loginForm = document.querySelector('#login-form');
-  loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+      })
+    }
+  }
+}
 
-    // getUserInput
-    const email = loginForm['login-email'].value;
-    const password = loginForm['login-password'].value;
-
-    auth.signInWithEmailAndPassword(email, password).then(cred => {
-
-      //Close Login Modal
-      const modal = document.querySelector('#modal-login');
-      M.Modal.getInstance(modal).close();
-      loginForm.reset();
-    });
-  })
+window.onload(handleSignIn);
