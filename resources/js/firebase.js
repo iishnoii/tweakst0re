@@ -43,6 +43,21 @@ logout.addEventListener('click', (e) => {
 // set actionCodeSettings
 const passwordLessAuth = document.querySelector('#passwordLessAuthForm');
 
+
+//Verify Email!
+function handleSignIn() {
+  if (auth.isSignInWithEmailLink(window.location.href)) {
+    var email = window.localStorage.getItem('emailForSignin');
+    if (!email) {
+      email = window.prompt('Please verify your email address.');
+    }
+    if (email) {
+      auth.signInWithEmailLink(email, window.location.href).then(cred => {
+
+      })
+    }
+  }
+}
 var actionCodeSettings = {
   // URL you want to redirect back to. The domain for this URL
   // must be whitelisted in the Firebase Console.
@@ -60,20 +75,3 @@ document.querySelector('.semail').addEventListener('click', (e) => {
     alert('Check your email!');
   })
 })
-
-//Verify Email!
-function handleSignIn() {
-  if (auth.isSignInWithEmailLink(window.location.href)) {
-    var email = window.localStorage.getItem('emailForSignin');
-    if (!email) {
-      email = window.prompt('Please verify your email address.');
-    }
-    if (email) {
-      auth.signInWithEmailLink(email, window.location.href).then(cred => {
-
-      })
-    }
-  }
-}
-
-window.onload(handleSignIn);
