@@ -47,7 +47,6 @@ const passwordLessAuth = document.querySelector('#passwordLessAuthForm');
 //Verify Email!
 function handleSignIn() {
   if (auth.isSignInWithEmailLink(window.location.href)) {
-    window.preventDefault();
     var email = window.localStorage.getItem('emailForSignin');
     if (!email) {
       email = window.prompt('Please verify your email address.');
@@ -72,6 +71,7 @@ var actionCodeSettings = {
 
 // sendEmailVerification
 document.querySelector('.semail').addEventListener('click', (e) => {
+  e.preventDefault();
 
   const email = passwordLessAuth['PWLAemail'].value;
 
