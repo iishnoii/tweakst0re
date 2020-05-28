@@ -50,14 +50,6 @@
             <li class="logged-out makeDisplayNone">
               <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
             </li>
-            <!-- makeSigninButton + show if(loggedOut) -->
-            <li class="logged-out makeDisplayNone">
-              <a href="#" class="white-text modal-trigger" data-target="modal-signup">Signup</a>
-            </li>
-            <!-- makeResetPasswordButton + show if(loggedOut) -->
-            <li class="logged-out makeDisplayNone">
-              <a href="#" class="white-text modal-trigger" data-target="resetPasswordModal">Reset Password</a>
-            </li>
           </ul>
         </div>
         <div class="nav-content center onePercentPadding" id="importantPanel"">
@@ -65,50 +57,20 @@
         </div>
       </nav>
 
-      <div id="passwordLessAuthContainer">
-        <form id="passwordLessAuthForm">
-          <div class="input-field">
-            <input type="email" id="PWLAemail" required/>
-            <label for="PWLAemail">Email:</label>
-          </div>
-          <button class="btn indigo accent-2 z-depth-0 semail">Send Email</button>
-        </form>
-      </div>
-
       <!-- Make Modal's from nav -->
-      <!-- signupModal -->
-      <div id="modal-signup" class="modal indigo accent-2">
-        <div class="modal-content">
-          <h4>Sign up</h4><br />
-          <form id="signup-form">
-            <div class="input-field">
-              <input type="email" id="signup-email" required />
-              <label for="signup-email">Email address</label>
-            </div>
-            <div class="input-field">
-              <input type="password" id="signup-password" required />
-              <label for="signup-password">Choose password</label>
-            </div>
-            <button class="btn indigo accent-2 z-depth-0">Sign up</button>
-          </form>
-        </div>
-      </div>
-
       <!-- loginModal -->
-      <div id="modal-login" class="modal indigo accent-2">
+      <div id="modal-login" class="modal indigo accent-2 center">
         <div class="modal-content">
-          <h4>Login</h4><br />
-          <form id="login-form">
-            <div class="input-field">
-              <input type="email" id="login-email" required />
-              <label for="login-email">Email address</label>
-            </div>
-            <div class="input-field">
-              <input type="password" id="login-password" required />
-              <label for="login-password">Your password</label>
-            </div>
-            <button class="btn indigo accent-2 z-depth-0">Login</button>
-          </form>
+          <h4>Login with Password-less Authentication!</h4><br />
+          <div id="passwordLessAuthContainer">
+            <form id="passwordLessAuthForm">
+              <div class="input-field">
+                <input type="email" id="PWLAemail" required/>
+                <label for="PWLAemail">Email:</label>
+              </div>
+              <button class="btn indigo accent-2 z-depth-0 semail">Send Email</button>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -120,19 +82,7 @@
         </div>
       </div>
 
-      <!-- resetPasswordModal -->
-      <div id="resetPasswordModal" class="modal indigo accent-2">
-        <form id="resetPasswordForm" method="submit">
-          <div class="modal-content center-align">
-            <h4>Reset Password</h4><br />
-            <div class="input-field">
-              <input type="email" id="userEmail4Reset" required />
-              <label for="userEmail4Reset">Email address</label>
-            </div>
-            <button class="btn indigo accent-2 z-depth-0">Reset Password</button>
-          </div>
-        </form>
-      </div>
+
 
       <!-- addNewTweakForm -->
       <div id="modal-newTweak" class="modal indigo accent-2">
