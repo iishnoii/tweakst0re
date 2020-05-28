@@ -70,7 +70,6 @@ function handleSignIn() {
     }
     if (email) {
       auth.signInWithEmailLink(email, 'https://iishnoii.github.io/tweakst0re/').then(cred => {
-
       })
     }
   }
