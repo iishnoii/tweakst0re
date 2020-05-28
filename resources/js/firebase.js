@@ -50,7 +50,7 @@ signupForm.addEventListener('submit', (e) => {
     });
   });
 
-  // loginUsers
+  // resetPassword
   const resetPasswordForm = document.querySelector('#resetPasswordForm');
   resetPasswordForm.addEventListener('submit', (e) => {
     e.preventDefault();
