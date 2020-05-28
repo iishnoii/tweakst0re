@@ -47,6 +47,7 @@ const passwordLessAuth = document.querySelector('#passwordLessAuthForm');
 //Verify Email!
 function handleSignIn() {
   if (auth.isSignInWithEmailLink(window.location.href)) {
+    window.preventDefault();
     var email = window.localStorage.getItem('emailForSignin');
     if (!email) {
       email = window.prompt('Please verify your email address.');
@@ -56,7 +57,7 @@ function handleSignIn() {
 
       })
     }
-    
+
     if (history && history.replaceState) {
       history.replaceState({}, document.title, window.location.href.split('?')[0]);
     }
