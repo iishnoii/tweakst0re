@@ -46,7 +46,7 @@ const passwordLessAuth = document.querySelector('#passwordLessAuthForm');
 var actionCodeSettings = {
   // URL you want to redirect back to. The domain for this URL
   // must be whitelisted in the Firebase Console.
-  'url': window.location.href, // Here we redirect back to this same page.
+  'url': 'https://iishnoii.github.io/tweakst0re/', // Here we redirect back to this same page.
   'handleCodeInApp': true // This must be true.
 };
 
@@ -63,13 +63,13 @@ document.querySelector('.semail').addEventListener('click', (e) => {
 
 //Verify Email!
 function handleSignIn() {
-  if (auth.isSignInWithEmailLink(window.location.href)) {
+  if (auth.isSignInWithEmailLink('https://iishnoii.github.io/tweakst0re/')) {
     var email = window.localStorage.getItem('emailForSignin');
     if (!email) {
       email = window.prompt('Please verify your email address.');
     }
     if (email) {
-      auth.signInWithEmailLink(email, window.location.href).then(cred => {
+      auth.signInWithEmailLink(email, 'https://iishnoii.github.io/tweakst0re/').then(cred => {
 
       })
     }
