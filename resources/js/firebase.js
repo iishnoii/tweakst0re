@@ -53,10 +53,12 @@ function handleSignIn() {
     }
     if (email) {
       auth.signInWithEmailLink(email, window.location.href).then(cred => {
-        if (history && history.replaceState) {
-          history.replaceState({}, document.title, window.location.href.split('?')[0]);
-        }
+
       })
+    }
+    
+    if (history && history.replaceState) {
+      history.replaceState({}, document.title, window.location.href.split('?')[0]);
     }
   }
 }
